@@ -11,16 +11,34 @@ var module1 = function (w,h,style1,style2){
   mod2.style = style2;
   return new Group([mod1,mod2])
 }
-var obj = [];
-for(var i = 0; i<=100; i++){
-  var style1 = {
-    fillColor: {hue:i*10,saturation:1,brightness:1}
+var colors = [
+  new Color({hue: 222,  saturation:  0.74, brightness:  0.54}),
+  new Color({hue: 235,  saturation:  0.10, brightness:  0.87}),
+  new Color({hue:   4,  saturation:  0.75, brightness:  0.91}),
+  new Color({hue:  30,  saturation:  0, brightness:  1 })
+]
+function onResize(event){
+  
+  var size = this.viewSize / 100;
+  var obj = [];
+  for(var i = 0; i<=size.width; i++){
+    for(var j=0; j<=size.height; j++){
+      var color1 = Math.floor(Math.random()*4);
+      var color2 = Math.floor(Math.random()*4);
+      console.log([color1,color2])
+      var style1 = {
+        fillColor: colors[color1]
+      }
+      var style2 = {
+        fillColor: colors[color2]
+      }
+      var g1 = new module1(100,100,style1,style2)
+      if(i%2===1&&j%2===0){
+        g1.scale(-1,1);
+      }else if(i%2===0&&j%2==1){
+        g1.scale(1,-1);
+      }
+      g1.position += [100*i,100*j];
+      obj.push(g1);    }
   }
-  var style2 = {
-    fillColor: {hue:100-(i*10),saturation:1,brightness:1}
-  }
-  var g1 = new module1(30,30,style1,style2)
-  g1.position.x += 30*i;
-  obj.push(g1);
-  console.log(obj[i])
 }
