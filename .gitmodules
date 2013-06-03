@@ -1,3 +1,0 @@
-[submodule "js/paperjs"]
-	path = js/paperjs
-	url = https://github.com/paperjs/paper.js.git
