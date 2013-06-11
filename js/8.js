@@ -262,7 +262,9 @@ var Vertex = function(x,y){
       triangle.polygon.segments[1].point += triangle.b.anchor;
       triangle.polygon.segments[2].point += triangle.c.anchor;
       
-      triangle.setColor(new Color({hue:util.transformSymetric(x*ox0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:util.transformSymetric(x*ox0,[0,this.triangles.length],[0,1])}))
+      triangle.computeCentroid()
+
+      triangle.setColor(new Color({hue:util.transformSymetric(x*oy0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:util.transform(x*oy0,[0,this.triangles.length],[.5,1])}))
       
     }
   }
