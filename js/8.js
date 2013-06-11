@@ -167,6 +167,7 @@ var Vertex = function(x,y){
     this.b = b || new Vertex();
     this.c = c || new Vertex();
     this.vertices = [this.a,this.b,this.c];
+    this.centroid = new Point();
     this.color = new Color({hue:Math.randomInRange(190,220),saturation:1,brightness:1})
     this.polygon = new Path(this.vertices);
     this.polygon.closed = true;
@@ -175,13 +176,18 @@ var Vertex = function(x,y){
     this.polygon.style.strokeWidth = 2;
     this.polygon.style.strokeJoin = 'round'
     //this.polygon.selected = true;
+    this.computeCentroid()
     return this;
   }
   Triangle.prototype = {
     setColor : function(color){
-      color = color || new Color();
-      this.polygon.style.fillColor = color;
-      this.polygon.style.strokeColor = color;
+      this.color = color || new Color();
+      this.polygon.style.fillColor = this.color;
+      this.polygon.style.strokeColor = this.color;
+    },
+    computeCentroid: function(){
+      this.centroid.x = (this.a.x + this.b.x + this.c.x)/3;
+      this.centroid.y = (this.a.y + this.b.y + this.c.y)/3;
     }
   }
 
@@ -191,6 +197,8 @@ var Vertex = function(x,y){
   var Plane = function(xSegments, ySegments) {
    //Inherits from Geometry 
     Geometry.call(this);
+    this.prototype = new Geometry();
+    this.prototype.constructor = Geometry;
     this.size = view.viewSize || new Size({
       width: 1024,
       height: 576
@@ -254,6 +262,8 @@ var Vertex = function(x,y){
       triangle.polygon.segments[1].point += triangle.b.anchor;
       triangle.polygon.segments[2].point += triangle.c.anchor;
       
+      triangle.setColor(new Color({hue:util.transformSymetric(x*ox0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:util.transformSymetric(x*ox0,[0,this.triangles.length],[0,1])}))
+      
     }
   }
   return Plane;
@@ -265,4 +275,8 @@ var now, start = Date.now();
 function onFrame(){
   now = Date.now() - start;
   geometry.update();
+}
+
+function mouseMove(){
+  
 }
