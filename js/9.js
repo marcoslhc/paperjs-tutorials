@@ -262,7 +262,7 @@ var Vertex = function(x,y){
 
       triangle.computeCentroid()
 
-      triangle.setColor(new paper.Color({hue:util.transformSymetric(x*oy0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:.5}))
+      triangle.setColor(new paper.Color({hue:util.transformSymetric(x*oy0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:util.transform(x*oy0,[0,this.triangles.length],[.5,1])}))
       
     }
   }
