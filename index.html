@@ -20,7 +20,7 @@
     width:100%; height:100%;
   }
   .vignette{
-    background-image:radial-gradient(ellipse at 50% 50%, rgba(22,22,22,0) 40%, rgba(22,22,22,1) 100%);
+    background-image:radial-gradient(ellipse at 50% 50%, rgba(0,22,44,0) 40%, rgba(0,22,44,1) 100%);
   }
   .noise{
     background-image:url("images/noise.png");
@@ -28,7 +28,9 @@
   }
   </style>
   <script type="text/javascript" src="js/prefixfree.min.js"></script>
-  <script data-main="js/config" type="text/javascript" src="js/require.js"></script>
+  <script type="text/javascript" src="js/paperjs-nightly/lib/paper.js"></script>
+  <script type="text/paperscript" canvas="tutorial" src="js/8.js"></script>
+  <script type="text/javascript" canvas="tutorial" src="js/9.js"></script>
 </head>
 <body>
   <canvas id="tutorial" resize="true"></canvas>
