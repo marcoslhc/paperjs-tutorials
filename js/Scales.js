@@ -1,4 +1,4 @@
-define({)
+define({
   scaleVal: function(value_from, min, max) {
     'use strict';
     /*
