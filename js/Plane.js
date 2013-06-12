@@ -1,5 +1,12 @@
-define(['Geometry','Triangle', 'Scales']function(Geometry, Triangle, scale){
-  var Plane = function(xSegments, ySegments) {
+define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, scale, Vertex){
+  var MESH = {
+    speed : 0.001,
+    xRange: 16,
+    yRange:18,
+    xSegments:16,
+    ySegments:9
+  };
+  var Plane = function (xSegments, ySegments) {
    //Inherits from Geometry 
     Geometry.call(this);
     this.prototype = new Geometry();
