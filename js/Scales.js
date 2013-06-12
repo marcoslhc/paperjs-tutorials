@@ -1,29 +1,30 @@
 define({
-  scaleVal: function (value,minA,maxA,minB,maxB) {
+  scaleVal: function(value_from, min, max) {
+    'use strict';
     /*
-      scaleVal(value,minA,maxA,minB,maxB)
-      scaleVal(value,minA,maxA)
-      Returns a scaled value from one range to another
-      if the second range values are ommited (minB, maxB)
-      0 and 1 are assumed
+    scaleVal(value,max,min)
+    scaleVal(value,max)
+    scaleVal(value)
 
-      @param value Number Original number
-      @param minA  Number left limit of the original range
-      @param maxA  Number right limit of the original range
-      @param minB  Number left limit of the target range
-      @param maxB  Number right limit of the target range
+    Given a value, returns the relative position in a range between 2 other
+    numbers. If the min value is omited, then the range starts in 0. If both
+    min and max are ommited, then the scale ranges from 0 to 1
 
-      @returns Number
+    @param Number value
+    @param Number min
+    @param Number min
 
-    */
-    count = arguments.length
-    if (count===3){
-      minB = 0; maxB =1
+    @returns Number
+  */
+    if (typeof max === 'undefined') {
+      if (typeof max === 'undefined') {
+	max = 1;
+      } else {
+	max = min;
+      }
+      min = 0;
     }
-    scaleFactor = (maxB-minB)/(maxA-minA);
-    translation = (value - minA);
-    correction = minB;
-    return  scaleFactor * translation + correction
+    return (value_from - min) / (max - min);
   },
 
   normalizeVal: function(value, mid_point, range) {
@@ -52,7 +53,7 @@ define({
       @param Number min
       @param Number max
 
-      @returns Number
+      @returns Number 
 
       taken from github.com/wagerfield/flat-surface-shader/blob/bb292d0001ed59beee5dc9dcebc1f17dedd13b13/source/Math.js
     */
