@@ -1,5 +1,6 @@
 requirejs.config({
-  baseUrl:"js/",
+  baseUrl:"/js/",
+  urlArgs:"bust="+(new Date()).getTime(),
   paths:{
     'paper':'paperjs-nightly/lib/paper'
   },
