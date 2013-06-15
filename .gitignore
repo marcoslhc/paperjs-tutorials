@@ -1,3 +1,4 @@
 js/paperjs-nightly/docs
 js/paperjs-nightly/examples
 **LICENSE.txt
+*.rej
