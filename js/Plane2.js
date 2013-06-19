@@ -73,8 +73,8 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
       }
     }
   }
-  Plane.prototype.update = function(now){
-
+  Plane.prototype.update = function(){
+    this.renderTriangles();
   }
   return Plane;
 })
