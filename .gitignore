@@ -1,3 +1,5 @@
 js/paperjs-nightly/docs
 js/paperjs-nightly/examples
 **LICENSE.txt
+js/config.js.rej
+patch.diff
