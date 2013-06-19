@@ -2,6 +2,12 @@ define(['Vertex', 'Scales','T'], function (Vertex, Scales,T) {
   // ==================
   // = Class Triangle =
   // ==================  
+  var colors = [
+    new paper.Color({hue: 222,  saturation:  0.74, brightness:  0.54}),
+    //new paper.Color({hue: 235,  saturation:  0.10, brightness:  0.87}),
+    new paper.Color({hue:   4,  saturation:  0.75, brightness:  0.91}),
+    new paper.Color({hue:  30,  saturation:  0, brightness:  1 })
+  ];
   var Triangle = function(a,b,c){
     this.a = a || new Vertex();
     this.b = b || new Vertex();
@@ -9,10 +15,10 @@ define(['Vertex', 'Scales','T'], function (Vertex, Scales,T) {
     
     this.vertices = [this.a,this.b,this.c];
     this.centroid = new paper.Point();
-    this.color = new  paper.Color({hue:scales.randomInRange(190,220),saturation:1,brightness:1})
-    
+    this.color = colors[~~(Math.random()*3)]
     this.polygon = new  paper.Path(this.vertices);
     this.polygon.closed = true;
+    this.polygon.selected = false;
     this.polygon.style.fillColor = this.color
     this.polygon.style.strokeColor =  this.color;
     this.polygon.style.strokeWidth = 2;
