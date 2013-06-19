@@ -1,4 +1,4 @@
-define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, scale, Vertex){
+define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangle, Scales, Vertex,T){
   var MESH = {
     speed : 0.001,
     xRange: 16,
