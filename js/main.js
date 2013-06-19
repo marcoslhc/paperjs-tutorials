@@ -6,16 +6,13 @@
 //  Created by Marcos Hernández on 2013-06-12.
 //  Copyright 2013 Marcos Hernández. All rights reserved.
 // 
-require(['paper','Plane'],function(s,Plane){
+require(['paper','Plane2'],function(s,Plane){
   var canvas = document.getElementById('tutorial')
   paper.setup(canvas);
   var geometry = new Plane();
   var now, start = Date.now();
   paper.view.draw();
-  paper.view.onFrame = function(){
-    now = Date.now() - start;
-    geometry.update(now);
-    
-  }
+   var breaker = 10;
+  
 });
 
