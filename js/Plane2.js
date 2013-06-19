@@ -48,7 +48,7 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
       this.vertices.push([]);
       for (y = 0; y <= this.ySegments; y++) {
         vertex = new Vertex(
-        offsetX + x * this.segmentSize.width*(y%2?1:0.5),
+	offsetX + x * this.segmentSize.width,
         offsetY + y * this.segmentSize.height);
         this.vertices[x].push(vertex);
         //this.vertices.push(vertex);
