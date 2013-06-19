@@ -9,7 +9,7 @@ define(['Vertex', 'Scales','T'], function (Vertex, Scales,T) {
     
     this.vertices = [this.a,this.b,this.c];
     this.centroid = new paper.Point();
-    this.color = new  paper.Color({hue:scales.randomInRange(190,220),saturation:1,brightness:1})
+    this.color = new  paper.Color({hue:Scales.randomInRange(190,220),saturation:1,brightness:1})
     
     this.polygon = new  paper.Path(this.vertices);
     this.polygon.closed = true;
