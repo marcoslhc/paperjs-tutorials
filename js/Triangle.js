@@ -31,10 +31,16 @@ define(['Vertex', 'Scales','T'], function (Vertex, Scales,T) {
       this.polygon.style.strokeColor = this.color;
     },
     
-    computeCentroid: function(){
+    computeCentroid: function (){
       this.centroid.x = (this.a.x + this.b.x + this.c.x)/3;
       this.centroid.y = (this.a.y + this.b.y + this.c.y)/3;
-    }
+    },
+    colorVariation: function (seed){
+      var angle = (this.color.brightness)%360;
+      var reduced = T.sin(angle);
+      var transformed = reduced*0.03/4;
+      //this.color.brightness += transformed
+     }
     
   }
   return Triangle;
