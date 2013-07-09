@@ -28,7 +28,14 @@
   }
   </style>
   <script type="text/javascript" src="js/prefixfree.min.js"></script>
-  <script data-main="js/config" type="text/javascript" src="js/require.js"></script>
+  <script type="text/javascript">
+      var require = {
+          baseUrl: "js/",
+          waitSeconds: 15,
+          urlArgs : "bust="+new Date().getTime()
+      };
+  </script>
+  <script data-main="config" type="text/javascript" src="js/require.js"></script>
 </head>
 <body>
   <canvas id="tutorial" resize="true"></canvas>
