@@ -1,4 +1,4 @@
-define(['Vertex', 'Scales','T'], function (Vertex, Scales,T) {
+define(['Vertex', 'Scales','T','paper'], function (Vertex, Scales,T,s) {
   // ==================
   // = Class Triangle =
   // ==================  
