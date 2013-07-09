@@ -10,7 +10,7 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
    //Inherits from Geometry 
     Geometry.call(this);
     this.prototype = new Geometry();
-    this.prototype.constructor = Geometry;
+    this.prototype.constructor = Plane;
     this.size = paper.view.viewSize || new paper.Size({
       width: 1024,
       height: 576
