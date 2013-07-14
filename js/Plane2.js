@@ -1,20 +1,22 @@
-define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangle, Scales, Vertex,T){
-  var MESH = {
-    speed : 0.001,
-    xRange: 16,
-    yRange:18,
-    xSegments:16,
-    ySegments:9
-  };
+define(['Geometry','Triangle','Scales','Vertex','T', 'paper'], function(Geometry, Triangle, Scales, Vertex,T,p){
   var Plane = function (xSegments, ySegments) {
    //Inherits from Geometry 
     Geometry.call(this);
-    this.prototype = new Geometry();
-    this.prototype.constructor = Plane;
-    this.size = paper.view.viewSize || new paper.Size({
-      width: 1024,
-      height: 576
-    });
+    var size = this._parent.view.size;
+    var MESH = {
+      speed : 0.001,
+      size: (function () {
+          return size || new paper.Size({
+              width: 1024,
+              height: 576
+          });
+      }()),
+      xRange: 16,
+      yRange:18,
+      xSegments:16,
+      ySegments:9
+    };
+    this.size = MESH.size
     this.xSegments = xSegments || MESH.xSegments;
     this.ySegments = ySegments || MESH.ySegments;
     this.segmentSize = new paper.Size({
@@ -23,8 +25,12 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
     });
     this.makeMesh();
     this.renderTriangles();
+    
+    
   
   }
+  Plane.prototype = new Geometry();
+  Plane.prototype.constructor = Plane;
   Plane.prototype.renderTriangles = function (){
     var x,y,v0,v1,v2,v3,vc,t0,t1,t2,t3;
     
@@ -53,7 +59,7 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
         t1 = new Triangle(v2,v3,vc);
         t2 = new Triangle(v3,v1,vc);
         t3 = new Triangle(v1,v0,vc);
-	this.modules.push(t0,t1,t2,t3);
+        this.modules.push(t0,t1,t2,t3);
       }
     }
   }
