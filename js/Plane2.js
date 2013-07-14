@@ -53,7 +53,7 @@ define(['Geometry','Triangle','Scales','Vertex','T'], function(Geometry, Triangl
         t1 = new Triangle(v2,v3,vc);
         t2 = new Triangle(v3,v1,vc);
         t3 = new Triangle(v1,v0,vc);
-        this.triangles.push(t0,t1,t2,t3);
+	this.modules.push(t0,t1,t2,t3);
       }
     }
   }
