@@ -1,10 +1,12 @@
-define(function (){
+define(["paper"], function (){
   // ==================
   // = Class Geometry =
   // ==================
   var Geometry = function() {
     this.vertices = [];
-    this.triangles = [];
+    this.modules = [];
+    Geometry.prototype._parent = paper.project;
   }
+
   return Geometry;
 });
