@@ -56,8 +56,8 @@ define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, s
     }
   }
   Plane.prototype.update = function(now){
-    var triangle;
-    for (x = 0; x < this.triangles.length; x++) {
+    var triangle, maxTriangles = this.triangles.length;
+    for (x = 0; x < maxTriangles; x++) {
       triangle = this.triangles[x];
     
       ox0 = Math.sin(triangle.a.time+triangle.a.step.x * now * MESH.speed);
@@ -78,7 +78,7 @@ define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, s
 
       triangle.computeCentroid()
 
-      triangle.setColor(new paper.Color({hue:scale.transformSymetric(x*oy0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:scale.transform(x*oy0,[0,this.triangles.length],[.5,1])}))
+      triangle.setColor(new paper.Color({hue:scale.transformSymetric(x*oy0,[0,this.maxTriangles],[190,210]),saturation:.5,lightness:scale.transform(x*oy0,[0,this.maxTriangles],[.5,1])}))
     
     }
   }

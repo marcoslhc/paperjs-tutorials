@@ -65,8 +65,8 @@ function getPoints(i,j,modulox,moduloy){
 
 function onResize(event){
   var pointMatrix = generatePoints(DISTANCE);
-  
-  for(var i=0;i<pointMatrix.length;i++){
+  maxPoints = pointMatrix.length
+  for(var i=0;i<maxPoints;i++){
     var num = new PointText(pointMatrix[i]);
     num.fillColor = 'black'
     num.content = i+''

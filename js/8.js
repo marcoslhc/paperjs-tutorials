@@ -83,8 +83,8 @@ var util = (function() {
     },
 
     mean: function(values) {
-      var total = 0;
-      for (var i = 0; i < values.length; i++) {
+      var total = 0, maxValues = values.length;
+      for (var i = 0; i < maxValues; i++) {
         total += values[i];
       }
       return total / values.length;
@@ -244,8 +244,8 @@ var Vertex = function(x,y){
     }
   }
   Plane.prototype.update = function(){
-    var triangle;
-    for (x = 0; x < this.triangles.length; x++) {
+    var triangle, maxTriangles = this.triangles.length;
+    for (x = 0; x < maxTriangles; x++) {
       triangle = this.triangles[x];
       
       ox0 = Math.sin(triangle.a.time+triangle.a.step.x * now * MESH.speed);
@@ -264,7 +264,7 @@ var Vertex = function(x,y){
       
       triangle.computeCentroid()
 
-      triangle.setColor(new Color({hue:util.transformSymetric(x*oy0,[0,this.triangles.length],[190,210]),saturation:.5,lightness:util.transform(x*oy0,[0,this.triangles.length],[.5,1])}))
+      triangle.setColor(new Color({hue:util.transformSymetric(x*oy0,[0,maxTriangles],[190,210]),saturation:.5,lightness:util.transform(x*oy0,[0,this.maxTriangles],[.5,1])}))
       
     }
   }

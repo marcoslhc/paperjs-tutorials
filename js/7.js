@@ -105,10 +105,11 @@ var set3anPoints = function(i,j,x,orientation){
 }
 
 var init = function(){
+    var maxPoints = matrix.length;
   for(var j = 0; j < y; j=j+1){
     for( var i = 0; i < x; i=i+1){
       //console.log((x+1)*(j+1)+i)
-      if((x+1)*(j+1)+i>=matrix.length) break;
+      if((x+1)*(j+1)+i>=maxPoints) break;
       //console.log(matrix)
       //console.log([i,j])
       var points1 =[], points2 = []
