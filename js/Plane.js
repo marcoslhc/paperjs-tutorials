@@ -35,7 +35,7 @@ define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, s
         v3 = this.vertices[x+1][y+1];
         t0 = new Triangle(v0,v1,v2);
         t1 = new Triangle(v2,v1,v3);
-        this.triangles.push(t0,t1);
+	this.modules.push(t0,t1);
       }
     }
   }
@@ -56,9 +56,9 @@ define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, s
     }
   }
   Plane.prototype.update = function(now){
-    var triangle, maxTriangles = this.triangles.length;
+    var triangle, maxTriangles = this.modules.length;
     for (x = 0; x < maxTriangles; x++) {
-      triangle = this.triangles[x];
+      triangle = this.modules[x];
     
       ox0 = Math.sin(triangle.a.time+triangle.a.step.x * now * MESH.speed);
       oy0 = Math.cos(triangle.a.time+triangle.a.step.y * now * MESH.speed);
@@ -78,7 +78,7 @@ define(['Geometry','Triangle','Scales','Vertex'], function(Geometry, Triangle, s
 
       triangle.computeCentroid()
 
-      triangle.setColor(new paper.Color({hue:scale.transformSymetric(x*oy0,[0,this.maxTriangles],[190,210]),saturation:.5,lightness:scale.transform(x*oy0,[0,this.maxTriangles],[.5,1])}))
+      triangle.setColor(new paper.Color({hue:scale.transformSymetric(x*oy0,[0,maxTriangles],[190,210]),saturation:.5,lightness:scale.transform(x*oy0,[0,maxTriangles],[.5,1])}))
     
     }
   }
