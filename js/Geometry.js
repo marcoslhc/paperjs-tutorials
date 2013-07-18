@@ -7,7 +7,7 @@ define(["Vertex", "paper"], function(Vertex) {
 	this.modules = [];
 
 	Geometry.prototype._parent = paper.project;
-	//var size = Geometry.prototype._parent.view.size;
+	var size = Geometry.prototype._parent.view.size;
 	var size;
 	var MESH = {
 	    speed: 0.001,
@@ -50,11 +50,6 @@ define(["Vertex", "paper"], function(Vertex) {
     }
     Geometry.prototype.init = function() {
 	this.makeMesh();
-	console.log(this.rectangle);
-	var p = new paper.Path.Line(this.vertices[this.xSegments][0],this.vertices[this.xSegments][this.ySegments]);
-	p.strokeColor = new paper.Color('black')
-	p.strokeWidth = 1
-
     }
     Geometry.prototype.render = function() {
     }
