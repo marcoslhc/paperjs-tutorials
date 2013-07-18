@@ -21,8 +21,8 @@ define(['Vertex', 'Scales','T','paper'], function (Vertex, Scales,T,s) {
     this.polygon.selected = false;
     this.polygon.style.fillColor = this.color
     this.polygon.style.strokeColor =  this.color;
-    this.polygon.style.strokeWidth = 2;
-    this.polygon.style.strokeJoin = 'round'
+    this.polygon.style.strokeWidth = 1;
+    this.polygon.style.strokeJoin = 'round';
     
     this.computeCentroid();
     
