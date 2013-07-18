@@ -14,12 +14,6 @@ requirejs.config({
     }
   }
 });
-require(['main', 'Block'],function (main, Block) {
-    var str = "abcdef"
-    var length = str.length;
-    var textBlock = [];
-    for(var i=0;i<length;i++){
-        textBlock.push(new Block(str[i],[2,2],100));
-        textBlock[i].init();
-    }
+require(['main'],function (main) {
+    
 })
