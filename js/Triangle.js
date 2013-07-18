@@ -29,25 +29,24 @@ define(['Vertex', 'Scales','T','paper'], function (Vertex, Scales,T,s) {
     return this;
   
   }
-  Triangle.prototype = {
+
     
-    setColor : function(color){
+    Triangle.prototype.setColor = function(color){
       this.color = color || new paper.Color();
       this.polygon.style.fillColor = this.color;
       this.polygon.style.strokeColor = this.color;
     },
     
-    computeCentroid: function (){
+    Triangle.prototype.computeCentroid= function (){
       this.centroid.x = (this.a.x + this.b.x + this.c.x)/3;
       this.centroid.y = (this.a.y + this.b.y + this.c.y)/3;
     },
-    colorVariation: function (seed){
+   Triangle.prototype.colorVariation= function (seed){
       var angle = (this.color.brightness)%360;
       var reduced = T.sin(angle);
       var transformed = reduced*0.03/4;
       //this.color.brightness += transformed
      }
     
-  }
   return Triangle;
 })
