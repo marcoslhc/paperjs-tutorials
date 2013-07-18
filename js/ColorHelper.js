@@ -3,20 +3,20 @@ define(['paper'],function (s) {
     darken: function (color,offset){
       console.log(color, offset)
       if(offset>1){
-	  offset = offset/100;
+          offset = offset/100;
       }
       if(offset){
-	  color.brightness = color.brightness - offset;
+          color.brightness = color.brightness - offset;
       }
       console.log(color,offset);
     },
     lighten: function (color,offset){
       console.log(color,offset);
       if(offset>1){
-	  offset = offset/100;
+          offset = offset/100;
       }
       if(offset){
-	  color.brightness = color.brightness+offset
+          color.brightness = color.brightness+offset
       }
       console.log(color,offset);
     },
