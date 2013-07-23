@@ -9,13 +9,13 @@
 require(['paper','Plane2','Block'],function(s,Plane, Block){
   var canvas = document.getElementById('tutorial')
   paper.setup(canvas);
-  /*
+  ///*
   var geometry = new Plane();
   var now, start = Date.now();
   console.log(geometry);
   geometry.init()
   //*/
-  ///*
+  /*
    var str = "k"
    var length = str.length;
    var textBlock = [];
@@ -31,6 +31,13 @@ require(['paper','Plane2','Block'],function(s,Plane, Block){
       
   }
   //*/
+  paper.view.onResize = function(){
+    if(!geometry){
+      geometry = new Plane();
+      return geometry.init();
+    }
+    geometry.render();
+  }
   paper.view.draw();
   
   

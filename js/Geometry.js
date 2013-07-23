@@ -7,7 +7,7 @@ define(["Vertex", "paper"], function(Vertex) {
         this.modules = [];
 
         Geometry.prototype._parent = paper.project;
-        //var size = Geometry.prototype._parent.view.size;
+        var size = Geometry.prototype._parent.view.size;
         var size;
         var MESH = {
             speed: 0.001,

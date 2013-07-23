@@ -43,7 +43,10 @@ function (Geometry, Triangle, Scales, T, p) {
             this.render();
         }
 
-        this.init();
+        this.init = function init () {
+            Geometry.prototype.init.call(this);
+            this.render();
+        };
     }
     return Plane;
 })
